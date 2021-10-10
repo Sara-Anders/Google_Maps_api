@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!-- Students: Please use this week's project for Week 8: Assignment 8: Class Map. 
+     You will need to replace the contents of this HTML file with your own work, 
+     and create any other files, if any, required for the assignment.
+     When you are done, be certain to submit the assignment in both Repl.it and Canvas to be graded. -->
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>CS50C Week08</title>
+	<style>
+		/*Dimensions/size of box holding map */
+		#thisMap {
+			width: 100%;
+			height: 500px;
+		}
+
+  
+	</style>
+</head>
+
+<body>
+	<div id="thisMap">
+	</div>
+
+	<script>
+    //console.log('anything?');
+		function withinMap() {
+      // inside this function we can write the code to make a map
+     // console.log(data);
+      
+      // step 1. define the geocoord (lat,long) for the center first
+      //console.log("here too");
+      let geocoords = {
+        lat: 38.4399354,
+        lng: -122.7234728
+      };
+      // step 2. create a google Map object
+     // console.log("hiya");
+      let mapping1 = new google.maps.Map(
+        // tell gmap the html element to draw map inside of
+        document.getElementById('thisMap'),
+        {
+          // provide the center in latitude and longitude
+          center: geocoords,
+          // set the zoom level for the map
+          zoom: 11,
+//adding map style "shadow agent" here
+          styles: [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": "-23"
+            },
+            {
+                "lightness": "27"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "gamma": "1"
+            },
+            {
+                "hue": "#ff1800"
+            },
+            {
+                "weight": "0.75"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#e74c3c"
+            },
+            {
+                "saturation": "-59"
+            },
+            {
+                "lightness": "30"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#ff1800"
+            },
+            {
+                "saturation": "2"
+            },
+            {
+                "lightness": "2"
+            },
+            {
+                "weight": "0.75"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": "-51"
+            },
+            {
+                "color": "#cbcbcb"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#2c3e50"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
+
+          
+
+        }
+      );
+      
+      // step 3. create a marker that is placed on the map
+         let geocoord1 = {
+                lat: 38.4490885,
+                lng: -122.7291934
+            };
+
+            let marker1 = new google.maps.Marker(
+                {
+                    // 1. the position of the marker geocoord
+                    position: geocoord1,
+                    // 2. which google map js var to place marker inside
+                    map: mapping1,
+                    // 3. title to show when user points at marker
+                    title:'Beer Drinkin'
+                }
+            );
+
+//new marker
+             let geocoord2 = {
+                lat: 38.4752083,
+                lng: -122.7446686
+            };
+
+            let marker2 = new google.maps.Marker(
+                {
+                    // 1. the position of the marker geocoord
+                    position: geocoord2,
+                    // 2. which google map js var to place marker inside
+                    map: mapping1,
+                    // 3. title to show when user points at marker
+                    title:'Dog Park'
+                }
+            );
+
+//new marker
+             let geocoord3 = {
+                lat: 38.451784,
+                lng: -122.7462423
+            };
+
+            let marker3 = new google.maps.Marker(
+                {
+                    // 1. the position of the marker geocoord
+                    position: geocoord3,
+                    // 2. which google map js var to place marker inside
+                    map: mapping1,
+                    // 3. title to show when user points at marker
+                    title: 'Park fun'
+                }
+            );
+
+    //Step 4. adding an info window to maps
+            var intel1 = new google.maps.InfoWindow(
+              {
+                content: '<h2>Lets Explore</h2><p>An adventurer has joined!</p>'
+              }
+            );
+
+    //Step 5. define a click event on our marker to open info window
+            marker1.addListener(
+              //event string
+              'click',
+              //block of code contained in a function to run when click happens
+              function(){
+                //tell intel1 window to open inside map 
+                intel1.open(
+                   //1 the map to open inside
+                  mapping1,
+                   //2 the geocoord/maerker to open window at
+                   marker1
+                );
+
+              }
+
+            );
+
+    }
+	</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7EC0-r_AOJ7AD14i4rAQRmj9VV15TI&callback=withinMap">
+console.log("ugh");
+</script>
+
+
+
+	<script src="script.js">
+	</script>
+
+
+<!--	<script>
+		
+    
+    var mapOptions = {
+      zoom: 10,
+      center: mapcoords
+                      };
+
+var map1 = new google.maps.Map(document.getElementById("map-container"), mapOptions);
+	</script> -->
+</body>
+
+</html>
