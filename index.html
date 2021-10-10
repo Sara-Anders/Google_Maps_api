@@ -15,8 +15,6 @@
 			width: 100%;
 			height: 500px;
 		}
-
-  
 	</style>
 </head>
 
@@ -25,10 +23,13 @@
 	</div>
 
 	<script>
-    //console.log('anything?');
+		//console.log('anything?');
 		function withinMap() {
       // inside this function we can write the code to make a map
      // console.log(data);
+
+
+     
       
       // step 1. define the geocoord (lat,long) for the center first
       //console.log("here too");
@@ -246,7 +247,7 @@
                     // 2. which google map js var to place marker inside
                     map: mapping1,
                     // 3. title to show when user points at marker
-                    title: 'Park fun'
+                    title: 'Human Park'
                 }
             );
 
@@ -275,30 +276,36 @@
 
             );
 
+//event listener to zoom in for marker2
+            marker2.addListener(
+              'click',
+              function()
+               {
+                 //W3 school version of MAp.setcener
+               mapping1.setZoom(17);
+               //map.setCenter(marker2.getPosition());
+               //google earth version
+               mapping1.setCenter(new google.maps.LatLng(38.4752083, -122.7446686));
+              }
+          );
+
+     
     }
 	</script>
 
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7EC0-r_AOJ7AD14i4rAQRmj9VV15TI&callback=withinMap">
-console.log("ugh");
-</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7EC0-r_AOJ7AD14i4rAQRmj9VV15TI&callback=withinMap">
+		console.log("ugh");
+
+	</script>
 
 
 
 	<script src="script.js">
+
 	</script>
 
 
-<!--	<script>
-		
-    
-    var mapOptions = {
-      zoom: 10,
-      center: mapcoords
-                      };
-
-var map1 = new google.maps.Map(document.getElementById("map-container"), mapOptions);
-	</script> -->
+	
 </body>
 
 </html>
