@@ -277,20 +277,50 @@
             );
 
 //event listener to zoom in for marker2
-            marker2.addListener(
+            marker3.addListener(
               'click',
               function()
                {
                  //W3 school version of MAp.setcener
-               mapping1.setZoom(17);
+               mapping1.setZoom(15);
                //map.setCenter(marker2.getPosition());
                //google earth version
                mapping1.setCenter(new google.maps.LatLng(38.4752083, -122.7446686));
               }
           );
 
+
+           //event for marker3, pan map back after 3 sec
+           marker2.addListener(
+              'click',
+              function()
+               {
+                 //W3 school version of MAp.setcener
+               mapping1.setZoom(16);
+               //map.setCenter(marker2.getPosition());
+               //google earth version
+               mapping1.setCenter(new google.maps.LatLng(38.4752083, -122.7446686));
+              }
+          );
+
+
+      mapping1.addListener("center_changed", () => {
+    // 4 seconds after the center of the map has changed, pan back to marker3.
+        window.setTimeout(() => {
+      mapping1.panTo(marker3.getPosition());
+         }, 4000);
+         });
+        marker3.addListener("click", () => {
+         mapping1.setZoom(16);
+        mapping1.setCenter(marker3.getPosition());
+         });
+
      
-    }
+    };
+
+   
+
+
 	</script>
 
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7EC0-r_AOJ7AD14i4rAQRmj9VV15TI&callback=withinMap">
