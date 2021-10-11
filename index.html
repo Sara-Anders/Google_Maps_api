@@ -206,6 +206,9 @@
                 lng: -122.7291934
             };
 
+            //custom marker var
+const image ="https://maps.google.com/mapfiles/kml/shapes/";
+
             let marker1 = new google.maps.Marker(
                 {
                     // 1. the position of the marker geocoord
@@ -213,7 +216,8 @@
                     // 2. which google map js var to place marker inside
                     map: mapping1,
                     // 3. title to show when user points at marker
-                    title:'Beer Drinkin'
+                    title:'Beer Drinkin',
+                    icon: image + 'snack_bar.png'
                 }
             );
 
@@ -236,8 +240,8 @@
 
 //new marker
              let geocoord3 = {
-                lat: 38.451784,
-                lng: -122.7462423
+                lat: 38.5115926,
+                lng: -122.778278
             };
 
             let marker3 = new google.maps.Marker(
@@ -247,7 +251,8 @@
                     // 2. which google map js var to place marker inside
                     map: mapping1,
                     // 3. title to show when user points at marker
-                    title: 'Human Park'
+                    title: 'Human Park',
+                    icon: image + 'man.png'
                 }
             );
 
